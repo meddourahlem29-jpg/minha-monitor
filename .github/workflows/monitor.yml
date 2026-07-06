@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Check website
         run: |
-          curl -L -s https://minha.anem.dz/change_rendez_vous > page.html
-
+ 
+curl -L --connect-timeout 30 --max-time 300 -s https://minha.anem.dz/change_rendez_vous > page.html
           if grep -q "لا توجد مواعيد" page.html; then
             echo "No appointments yet."
           else
